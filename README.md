@@ -76,13 +76,27 @@ As per the non-functional requirements of this project, the system should suppor
 ### Class Diagrams
 - **Entity Class Diagram**
 <p align="center">
-  <img src="final/design/class-diagrams/EntityClassDiagram.png">
+  <img src="src/main/resources/ERdiagram.jpg">
 </p>
+
+- I decided to add the restaurant class to support extensibility, since that I specified within the specifications that the owners could open other restaurants in new locations.
+- Auditable is a super-class specific to the spring framework and JPA and has attributes such as Createdby, CreatedDate, lastModifiedby, lastModifiedDate, since these attributes   are common to all the entities.
+- Each restaurant has 1 to many table bookings and orders
+- Each Restaurant has one and only menu 
+- A menu has 1 to many menu lines, (Pasta, pizza etc…)
+- An order has 1 to many order lines which will be used to generate receipts for customers.
+ 
+
+
 
 - **Repositories and Services Class Diagram**
 <p align="center">
-  <img src="final/design/class-diagrams/RepositoriesServicesClassDiagram.png">
+  <img src="src/main/resources/RepositoryDiagram.jpg">
 </p>
+
+<p align="center">
+Since I switched to the spring Framework, I can use the crud repository superclass provided by the spring framework. I identified the user, TableBooking and order as services given their complexity. Each service will make use of its own repository as specified within the diagram. 
+  </p>
 
 ### Sequence Diagrams
 - **Data-driven Sequence Diagram**
