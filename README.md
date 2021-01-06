@@ -44,22 +44,32 @@ My project will revolve around the design and development of a restaurant Manage
 ## Architecture
 - **Physical Architecture - Initial**
 <p align="center">
-  <img src="final/architecture/architecture1.png">
+  <img src="src/main/resources/Architecture1.JPG">
 </p>
+<p align="center">
+The firewall will analyze incoming traffic based on pre-established security rules. The application server will host the application’s business logic. The database server will  store the data required to manage and effectively run the restaurant.
+  </p>
 
 - **Physical Architecture - Protocols & Software**
 <p align="center">
-  <img src="final/architecture/architecture1b.png">
+   <img src="src/main/resources/Architecture2.JPG">
 </p>
+<p align="center">
+The client will communicate with the firewall through the use of Rest and the HTTPS protocol, therefore all the packets sent by the client will be encrypted. The firewall will relay the request to the application server via the rest and http protocol.  The application server will run Spring Boot as a backend framework on top of the Java Runtime Environment.  Finally, the database server will consist of a PostgreSQL Database Management System.
+  </p>
 
 - **Physical Architecture - Resilient (No SPoF) / Scalable**
 <p align="center">
-  <img src="final/architecture/architecture2.png">
+  <img src="src/main/resources/Architecture3.JPG">
 </p>
+<p align="center">
+As per the non-functional requirements of this project, the system should support high availability and must have no single point of failure. To satisfy these requirements, a cluster of firewalls, load balancers and application servers will be used. Another non-functional requirement that will be satisfied with this architecture is scalability. 
+
+  </p>
 
 - **Logical Architecture - Inside an Application Server**
 <p align="center">
-  <img src="final/architecture/architecture3.png">
+  <img src="src/main/resources/LogicalArchitecture.JPG">
 </p>
 
 ## Design
