@@ -101,25 +101,19 @@ Since I switched to the spring Framework, I can use the crud repository supercla
 ### Sequence Diagrams
 - **Data-driven Sequence Diagram**
 <p align="center">
-  <img src="final/design/sequence-diagrams/DataDrivenSequenceDiagram.png">
+  <img src="src/main/resources/SequenceDiagram1.JPG">
 </p>
+<p align="center">
+Since I switched to the Spring framework I can make use of the REST auto-exposed repositories that will manage all the entities specified in the entity class diagram. The client will indeed remotely call one or more repositories through HTTPS/Rest, these repositories will perform CRUD operations (Update, Delete, add…). These entities are mapped directly to a PostgreSQL database through the use of Hibernate.
+  </p>
 
 - **Service-driven Sequence Diagram**
 <p align="center">
-  <img src="final/design/sequence-diagrams/ServiceDrivenSequenceDiagram.png">
+  <img src="src/main/resources/SequenceDiagram2.JPG">
 </p>
+<p align="center">
+A service, as mentioned in class, is fundamentally more complex than simple Crud operations. The client remotely calls a Rest Controller which will call the adequate service. The service in turn calls the repository associated with that service (for instance, the booking service will call the booking repository). The repository will in turn perform crud operations in the adequate table within the database. If Data needs to be returned, the cycle is reversed, the data is sent by the repository to the service then to the REST controller which will remotely return the data to the user.
 
-## Development
-**Starting point**
-- Clone this repository
-- cd final
-- ./gradlew build
-- There you go!
+  </p>
 
-**You need to install Docker, then run these commands**
-- docker pull redis
-- docker pull postgres
-- docker run --name redis-container -p 6379:6379 -d redis
-- docker run --name postgres-container -e POSTGRES_PASSWORD=postgres -p 5432:5432 -d postgres
-- docker exec -it postgres-container psql -U postgres
-- create database xcommerce
+
